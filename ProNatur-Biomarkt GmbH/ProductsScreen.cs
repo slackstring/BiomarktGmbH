@@ -18,10 +18,65 @@ namespace ProNatur_Biomarkt_GmbH
         public ProductsScreen()
         {
             InitializeComponent();
-
             //Start
-            databaseConnection.Open();
+            ShowProducts();
 
+
+        }
+
+
+
+        private void btnProductSave_Click(object sender, EventArgs e)
+        {
+            if (tbProductName.Text == ""
+               || tbProductBrand.Text == ""
+               || tbProductPrice.Text == ""
+               || cbProductCategory.Text == "")
+            {
+                MessageBox.Show("Fülle alle Felder aus!");
+                return;
+            }
+            else
+            {
+
+
+                //save product name in database
+                string productName = tbProductName.Text;
+                string productBrand = tbProductBrand.Text;
+                string productCategory = cbProductCategory.Text;
+                string productPrice = tbProductPrice.Text;
+
+                databaseConnection.Open();
+                string query = string.Format("insert into Products values('{0}','{1}','{2}','{3}')", productName, productBrand, productCategory, productPrice);
+                SqlCommand sqlCommand = new SqlCommand(query, databaseConnection);
+                sqlCommand.ExecuteNonQuery();
+                databaseConnection.Close();
+                ClearAllFields();
+                ShowProducts();
+            }
+        }
+
+        private void btnProductEdit_Click(object sender, EventArgs e)
+        {
+
+            ShowProducts();
+        }
+
+        private void btnProductClear_Click(object sender, EventArgs e)
+        {
+            ClearAllFields();
+        }
+
+        private void btnProductDelete_Click(object sender, EventArgs e)
+        {
+
+            ShowProducts();
+        }
+
+        private void ShowProducts()
+        {
+
+            databaseConnection.Open();
             string query = "select * from Products";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, databaseConnection);
             DataSet dataSet = new DataSet();
@@ -34,27 +89,15 @@ namespace ProNatur_Biomarkt_GmbH
 
 
             databaseConnection.Close();
-
         }
 
-        private void btnProductSave_Click(object sender, EventArgs e)
+        private void ClearAllFields()
         {
-
-        }
-
-        private void btnProductEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductClear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductDelete_Click(object sender, EventArgs e)
-        {
-
+            tbProductBrand.Clear();
+            tbProductName.Clear();
+            tbProductPrice.Clear();
+            cbProductCategory.SelectedItem = null;
+            cbProductCategory.Text = "";
         }
     }
 }

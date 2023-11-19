@@ -9,3 +9,5 @@ D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNat
 D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNatur-Biomarkt GmbH.csproj.CoreCompileInputs.cache
 D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNatur-Biomarkt GmbH.exe
 D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNatur-Biomarkt GmbH.pdb
+D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNatur_Biomarkt_GmbH.MainMenuScreen.resources
+D:\[programming]\CSharpBootcamp-Biomarkt\ProNatur-Biomarkt GmbH\obj\Debug\ProNatur_Biomarkt_GmbH.ProductsScreen.resources
